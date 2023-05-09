@@ -1,0 +1,4 @@
+name: MaxKookBot
+version: '1.0-SNAPSHOT'
+main: ml.maxcraftmc.maxkookbot.MaxKookBot
+api-version: 1.19
