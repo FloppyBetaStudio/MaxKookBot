@@ -1,7 +1,9 @@
 package ml.maxcraftmc.maxkookbot;
 
 import io.github.kookybot.JavaBaseClass;
+import io.github.kookybot.annotation.Filter;
 import io.github.kookybot.client.Client;
+import io.github.kookybot.commands.CommandSource;
 import io.github.kookybot.contract.Guild;
 import io.github.kookybot.contract.Self;
 import io.github.kookybot.contract.TextChannel;
@@ -25,12 +27,16 @@ public class KookMain {
         public void onChannelMessage(ChannelMessageEvent event) {
             // Add a listener for channel messages / 添加一个监听器以侦听频道消息
             if (event.getChannel().getId().equals(workChannel.getId())) {
+                //list命令监听
+                if(event.getContent().equals("list")){
+                    event.getChannel().sendMessage(MCUtils.getOnlinePlayers(), event.getSender());
+                }
+
                 String msg = "[Kook]["+event.getChannel().getName()+"]<"+event.getSender().getName()+">"+event.getContent();
                 Bukkit.broadcast(msg, "bukkit.broadcast");
 
         }
     }
-
 }
 
     public static void SendMessageToChannel(String msg) {
