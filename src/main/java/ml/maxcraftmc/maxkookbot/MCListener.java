@@ -55,8 +55,7 @@ public class MCListener implements Listener{
     @EventHandler
     public void onPlayerAdvancementDone(PlayerAdvancementDoneEvent event) {
         Player player = event.getPlayer();
-        Advancement achievement = event.getAdvancement();
-        String message = player.getName() + " 获得了成就 " + achievement.getDisplay();
+        String message = player.getName() + " 获得了成就 " + event.getAdvancement().getDisplay().title();
         KookMain.sendMessageAsync(message);
     }
 }
